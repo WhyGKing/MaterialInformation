@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title%} List {% endblock %}
+{% block content %}
+
+<div class = "btn-group">
+    <a href="{% url 'add' %}" class="btn btn-info">Add MaterialInfo</a>
+</div>
+<p></p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Category</th>
+            <th scope="col">Material</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Chemical name</th>
+            <th scope="col">Modify</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for material in object_list %}    <!--기능태그의 의미-->
+            <tr>
+               <td>{{forloop.counter}}</td>  <!-- 출력의 의미 -->
+                <td>{{material.category}}</td>
+                <td><a href="{% url 'detail' pk=material.id %}">{{material.MaterialName}}</a></td>
+                <td>{{material.maker}}</td>
+                <td>{{material.ChemName}}</td>
+                <td><a href="{% url 'update' pk=material.id %}" class="btn btn-success btn-sm">Modify</a></td>
+                <td><a href="{% url 'delete' pk=material.id %}" class="btn btn-danger btn-sm">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}tml>
