@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class MaterialInfo(models.Model):
     MaterialName = models.CharField(max_length=30, null=False)
@@ -12,3 +13,5 @@ class MaterialInfo(models.Model):
 
     def __str__(self):
         return self.MaterialName + " / " + self.maker
+
+
